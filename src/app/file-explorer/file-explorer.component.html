@@ -1,0 +1,92 @@
+<mat-toolbar>
+  <mat-icon (click)="navigateUp()" *ngIf="canNavigateUp" class="pointer">
+    arrow_back
+  </mat-icon>
+  <span style="margin-left: 8px"> {{path || 'Files'}} </span>
+  <span class="spacer"></span>
+  <mat-icon (click)="openNewFolderDialog()" class="pointer">
+    create_new_folder
+  </mat-icon>
+</mat-toolbar>
+
+<div
+  class="container"
+  fxFlex
+  fxLayout="row"
+  fxLayoutAlign="space-between stretch"
+>
+  <div class="content" fxFlex fxLayout="row">
+    <mat-grid-list cols="8" fxFlex rowHeight="100px">
+      <mat-grid-tile
+        *ngFor="let element of fileElements"
+        class="file-or-folder"
+      >
+        <span
+          #menuTrigger="matMenuTrigger"
+          [matMenuTriggerData]="{element: element}"
+          [matMenuTriggerFor]="rootMenu"
+        >
+        </span>
+        <div
+          (click)="navigate(element)"
+          (contextmenu)="openMenu($event, menuTrigger)"
+          fxLayout="column"
+          fxLayoutAlign="space-between center"
+        >
+          <mat-icon
+            *ngIf="element.isFolder"
+            class="file-or-folder-icon pointer"
+            color="primary"
+          >
+            folder
+          </mat-icon>
+          <mat-icon
+            *ngIf="!element.isFolder"
+            class="file-or-folder-icon pointer"
+            color="primary"
+          >
+            insert_drive_file
+          </mat-icon>
+
+          <span>{{element.name}}</span>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+
+
+<mat-menu #rootMenu="matMenu" [overlapTrigger]="false">
+  <ng-template let-element="element" matMenuContent>
+    <button
+      [matMenuTriggerData]="{self: element}"
+      [matMenuTriggerFor]="moveToMenu"
+      mat-menu-item
+    >
+      <mat-icon>open_with</mat-icon>
+      <span>Move To</span>
+    </button>
+    <button (click)="openRenameDialog(element)" mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      <span>Rename</span>
+    </button>
+    <button (click)="deleteElement(element)" mat-menu-item>
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #moveToMenu="matMenu">
+  <ng-template let-self="self" matMenuContent>
+    <ng-container *ngFor="let element of fileElements">
+      <button
+        (click)="moveElement(self, element)"
+        *ngIf="element.isFolder && element.id !== self.id"
+        mat-menu-item
+      >
+        {{element.name}}
+      </button>
+    </ng-container>
+  </ng-template>
+</mat-menu>

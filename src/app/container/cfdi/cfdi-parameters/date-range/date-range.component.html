@@ -1,0 +1,21 @@
+<p>date-range works!</p>
+
+
+<div>
+  <div>
+    <mat-form-field>
+      <mat-label>Rango fechas</mat-label>
+      <mat-date-range-input
+        [formGroup]="rango"
+        [rangePicker]="picker">
+
+        <input (dateChange)="inicioChange($event)" formControlName="inicio" matStartDate placeholder="Fecha Inicio">
+        <input (dateChange)="finChange($event)" formControlName="fin" matEndDate placeholder="Fecha fin">
+      </mat-date-range-input>
+
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+
+</div>

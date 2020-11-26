@@ -1,0 +1,29 @@
+<!--<div class="row">
+  <div class="col-md-12">-->
+<app-path-selector (outSubmitEvent)="onSubmitEvent($event)"></app-path-selector>
+<!--  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">-->
+<!--<app-file-browser
+  [files]="files$ | async"
+
+  (outFileDetail)="onFileDetail($event)"
+  (outFileSave)="onFileSave($event)"
+></app-file-browser>-->
+<!--  </div>
+</div>-->
+<app-files-totals [totalEgresosImpuestosRetenidos]="totalEgresosImpuestosRetenidos$ | async"
+                  [totalEgresosImpuestosTrasladados]="totalEgresosImpuestosTrasladados$ | async"
+                  [totalEgresos]="totalEgresos$ | async"
+                  [totalIngresosImpuestosRetenidos]="totalIngresosImpuestosRetenidos$ | async"
+                  [totalIngresosImpuestosTrasladados]="totalIngresosImpuestosTrasladados$ | async"
+                  [totalIngresos]="totalIngresos$ | async"
+></app-files-totals>
+
+<app-files-grid (outCfdiChanged)="cfdiChanged($event)"
+                [cfdi]="cfdi$ | async"
+                [files]="files$ | async"
+>
+
+</app-files-grid>

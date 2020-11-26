@@ -1,0 +1,32 @@
+<!--<p>
+  cliente-list works!
+</p>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered">
+      <tbody>
+<app-cliente-item *ngFor="let cliente of clientes" [cliente]="cliente" ></app-cliente-item>
+      </tbody>
+    </table>
+  </div>
+</div>-->
+
+<mat-card>
+  <mat-card-title>
+    Clientes Existentes
+  </mat-card-title>
+  <mat-card-content>
+    <mat-table [dataSource]="clientes">
+      <ng-container matColumnDef="rfc">
+        <th *matHeaderCellDef mat-header-cell> RFC</th>
+        <td *matCellDef="let element" mat-cell> {{element.rfc}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <th *matHeaderCellDef mat-header-cell> Nombre</th>
+        <td *matCellDef="let element" mat-cell> {{element.nombre}} </td>
+      </ng-container>
+      <tr *matHeaderRowDef="columnsToDisplay" mat-header-row></tr>
+      <tr *matRowDef="let myRowData; columns: columnsToDisplay" mat-row></tr>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

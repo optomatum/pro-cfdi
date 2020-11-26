@@ -1,0 +1,13 @@
+<app-cfdi-parameters
+  (emisorSelected)="emisorSelected($event)"
+  (outFin)="finSelected($event)"
+  (outInicio)="inicioSelected($event)"
+  (receptorSelected)="receptorSelected($event)"
+  [emisores]="emisores$ | async"
+  [receptores]="receptores$ | async"
+></app-cfdi-parameters>
+<div>
+  <button (click)="consultar()" color="primary" mat-raised-button>Consultar</button>
+</div>
+
+<app-cfdi-processor [cfdi]="cfdi$ | async"></app-cfdi-processor>

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-12">
+    <app-cliente-add (outAddCliente)="addCliente($event)"></app-cliente-add>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-cliente-list [clientes]="clientes$ | async"></app-cliente-list>
+  </div>
+</div>

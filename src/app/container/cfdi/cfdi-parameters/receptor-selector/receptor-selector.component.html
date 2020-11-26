@@ -1,0 +1,10 @@
+<p>receptor-selector works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>Receptor</mat-label>
+  <mat-select (selectionChange)="changeReceptor($event.value)" [(value)]="selected">
+    <mat-option></mat-option>
+    <mat-option *ngFor="let receptor of receptores" [value]="receptor.rfcReceptor">
+      {{receptor.nombreReceptor}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

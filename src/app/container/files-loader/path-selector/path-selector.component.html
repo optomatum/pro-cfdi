@@ -1,0 +1,58 @@
+<!--<form action="">
+  <div class="row">
+
+    <div class="col-sm-12 form-group">
+      <label for="file">Name</label>
+      <input #fileInput class="form-control" id="file" type="text">
+
+    </div>
+
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button (click)="onSubmit()" class="btn btn-success" type="submit">Obtener archivos</button>
+
+
+    </div>
+  </div>
+</form>-->
+
+<!--<mat-card>
+&lt;!&ndash;  <mat-card-header>
+    Directorio
+  </mat-card-header>&ndash;&gt;
+  <mat-card-content>-->
+
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
+  <form>
+    <mat-form-field [appearance]="'outline'" style="width: 50%">
+      <mat-label for="file">Directorio</mat-label>
+      <input #fileInput class="form-control" id="file" matInput type="text">
+    </mat-form-field>
+    <button (click)="onSubmit()" color="primary" mat-raised-button style="margin: 20px">Obtener archivos</button>
+  </form>
+</div>
+
+<!--  </mat-card-content>
+</mat-card>-->
+
+<!--
+
+<div style="padding: 100px; height: 100%; box-sizing: border-box;">
+  <mat-card style="height: 100%; box-sizing: border-box; padding:0">
+    <app-file-explorer
+      [fileElements]="fileElements | async"
+      [path]="currentPath"
+      [canNavigateUp]="canNavigateUp"
+      (folderAdded)="addFolder($event)"
+      (elementRemoved)="removeElement($event)"
+      (navigatedDown)="navigateToFolder($event)"
+      (navigatedUp)="navigateUp()"
+      (elementRenamed)="renameElement($event)"
+      (elementMoved)="moveElement($event)"
+    >
+    </app-file-explorer>
+  </mat-card>
+</div>
+-->

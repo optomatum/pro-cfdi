@@ -1,0 +1,10 @@
+<p>emisor-selector works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>Emisor</mat-label>
+  <mat-select (selectionChange)="changeEmisor($event.value)" [(value)]="selected">
+    <mat-option></mat-option>
+    <mat-option *ngFor="let emisor of emisores" [value]="emisor.rfcEmisor">
+      {{emisor.nombreEmisor}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

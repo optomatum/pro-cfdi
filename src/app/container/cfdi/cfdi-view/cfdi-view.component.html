@@ -1,0 +1,121 @@
+<!--{{cfdiview}}
+<div class="container table-primary">
+  <div class="row">
+    <div class="col-md-3">
+      <p>Tipo de comprobante</p>
+    </div>
+    <div class="col-md-3">
+      <p>{{cfdi.tipoComprobante}}</p>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+
+  </div>
+</div>-->
+<div *ngIf="cfdi">
+  <form>
+    <div class="form-group row">
+      <div class="col">
+        <p>Emisor</p>
+      </div>
+      <div class="col">
+        <label for="rfcEmisor">RFC</label>
+        <input class="form-control" disabled id="rfcEmisor" placeholder="" type="text" value="{{cfdi.emisor.rfc}}">
+      </div>
+      <div class="col">
+        <label for="nombreEmisor">RFC</label>
+        <input class="form-control" disabled id="nombreEmisor" placeholder="" type="text"
+               value="{{cfdi.emisor.nombre}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col">
+        <p>Receptor</p>
+      </div>
+      <div class="col">
+        <label for="rfcReceptor">RFC</label>
+        <input class="form-control" disabled id="rfcReceptor" placeholder="" type="text" value="{{cfdi.receptor.rfc}}">
+      </div>
+      <div class="col">
+        <label for="nombreReceptor">RFC</label>
+        <input class="form-control" disabled id="nombreReceptor" placeholder="" type="text"
+               value="{{cfdi.receptor.nombre}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <!--<div class="col">
+      <label for="tipoComprobante">Tipo de comprobante</label>
+      <input value="{{cfdi.tipoComprobante}}" type="text" placeholder="" class="form-control" id="tipoComprobante" disabled>
+      </div>-->
+      <div class="col">
+        <label for="formaPago">Forma de pago</label>
+        <input class="form-control" disabled id="formaPago" placeholder="" type="text" value="{{cfdi.formaPago}}">
+      </div>
+      <div class="col">
+        <label for="metodoPago">Metodo de pago</label>
+        <input class="form-control" disabled id="metodoPago" placeholder="" type="text" value="{{cfdi.metodoPago}}">
+      </div>
+      <div class="col">
+        <label for="fecha">Fecha</label>
+        <input class="form-control" disabled id="fecha" placeholder="" type="text" value="{{cfdi.fecha}}">
+      </div>
+
+    </div>
+
+    <div class="form-group row">
+
+      <div class="col">
+        <label for="total">Total</label>
+        <input class="form-control" disabled id="total" placeholder="" type="text" value="{{cfdi.total}}">
+      </div>
+      <div class="col">
+        <label for="subtotal">Subtotal</label>
+        <input class="form-control" disabled id="subtotal" placeholder="" type="text" value="{{cfdi.subtotal}}">
+      </div>
+      <div class="col">
+        <label for="moneda">Moneda</label>
+        <input class="form-control" disabled id="moneda" placeholder="" type="text" value="{{cfdi.moneda}}">
+      </div>
+      <div class="col">
+        <label for="folio">Folio</label>
+        <input class="form-control" disabled id="folio" placeholder="" type="text" value="{{cfdi.folio}}">
+      </div>
+      <div class="col">
+        <label for="serie">Serie</label>
+        <input class="form-control" disabled id="serie" placeholder="" type="text" value="{{cfdi.serie}}">
+      </div>
+
+    </div>
+
+    <div *ngFor="let concepto of cfdi.conceptos" class="form-group row">
+      <div class="col">
+        <label for="cantidad">Cantidad</label>
+        <input class="form-control" disabled id="cantidad" placeholder="" type="text" value="{{concepto.cantidad}}">
+      </div>
+
+      <div class="col">
+        <label for="descripcion">Descripcion</label>
+        <input class="form-control" disabled id="descripcion" placeholder="" type="text"
+               value="{{concepto.descricion}}">
+      </div>
+      <div class="col">
+        <label for="valorUnitario">Valor unitario</label>
+        <input class="form-control" disabled id="valorUnitario" placeholder="" type="text"
+               value="{{concepto.valorUnitario}}">
+      </div>
+      <div class="col">
+        <label for="importe">Importe</label>
+        <input class="form-control" disabled id="importe" placeholder="" type="text" value="{{concepto.importe}}">
+      </div>
+
+
+    </div>
+
+
+  </form>
+</div>
+

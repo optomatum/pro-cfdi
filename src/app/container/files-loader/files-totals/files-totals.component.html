@@ -1,0 +1,45 @@
+<p>files-totals works!</p>
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="32px">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Ingresos
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <p>Total</p>
+        <p>{{totalIngresos}}</p>
+      </div>
+      <div>
+        <p>Impuestos Trasladados</p>
+        <p>{{totalIngresosImpuestosTrasladados}}</p>
+      </div>
+      <div>
+        <p>Impuestos Retenidos</p>
+        <p>{{totalIngresosImpuestosRetenidos}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Egresos
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <p>Total</p>
+        <p>{{totalEgresos}}</p>
+      </div>
+      <div>
+        <p>Impuestos Trasladados</p>
+        <p>{{totalEgresosImpuestosTrasladados}}</p>
+      </div>
+      <div>
+        <p>Impuestos Retenidos</p>
+        <p>{{totalEgresosImpuestosRetenidos}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

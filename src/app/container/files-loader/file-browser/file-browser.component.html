@@ -1,0 +1,40 @@
+<!--<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+
+        <tbody>
+
+        <app-file-detail [file]="file" *ngFor="let file of files"
+
+                         (outFileDetail)="onFileDetail(file)"></app-file-detail>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>-->
+
+
+<mat-table [dataSource]="files">
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef mat-header-cell> Archivo</th>
+    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="path">
+    <th *matHeaderCellDef mat-header-cell> Ruta</th>
+    <td *matCellDef="let element" mat-cell> {{element.path}} </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th *matHeaderCellDef mat-header-cell></th>
+    <td *matCellDef="let element" mat-cell>
+      <button (click)="onFileDetail(element)" mat-raised-button>Edit</button>
+      <button (click)="onFileSave(element)" mat-raised-button>Save</button>
+    </td>
+  </ng-container>
+  <tr *matHeaderRowDef="columnsToDisplay" mat-header-row></tr>
+  <tr *matRowDef="let myRowData; columns: columnsToDisplay" mat-row></tr>
+</mat-table>
+
+

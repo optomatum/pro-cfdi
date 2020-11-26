@@ -1,0 +1,44 @@
+<!--<div class="row">
+  <div class="col-md-12">
+    <app-header (featureSelected)="onNavigate($event)"></app-header>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-files-loader *ngIf="loadedFeature === 'files-loader'"
+                      (outSubmitEvent)="onSubmitEvent($event)"
+                      [files]="files$ | async" (outFileDetail)="onFileDetail($event)">
+
+    </app-files-loader>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-cliente *ngIf="loadedFeature === 'cliente'"
+                 (outAddCliente)="addCliente($event)"
+                 [clientes]="clientes$ | async"
+    >
+
+    </app-cliente>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <app-cfdi-view [cfdiJson]="cfdi$ | async" *ngIf="cfdi$"></app-cfdi-view>
+  </div>
+</div>-->
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a [routerLink]="'/clientes'" mat-list-item>Clientes</a>
+      <a [routerLink]="'/files-loader'" mat-list-item>Importar archivos</a>
+      <a [routerLink]="'/cfdi-processor'" mat-list-item>CFDI</a>
+      <!-- <a mat-list-item >Clientes</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

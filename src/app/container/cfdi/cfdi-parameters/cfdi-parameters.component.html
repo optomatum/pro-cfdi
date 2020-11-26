@@ -1,0 +1,6 @@
+<p>cfdi-parameters works!</p>
+
+<app-receptor-selector (receptorSelected)="changeReceptor($event)" [receptores]="receptores"></app-receptor-selector>
+<app-emisor-selector (emisorSelected)="changeEmisor($event)" [emisores]="emisores"></app-emisor-selector>
+<app-date-range (outFin)="finChange($event)" (outInicio)="inicioChange($event)"></app-date-range>
+
